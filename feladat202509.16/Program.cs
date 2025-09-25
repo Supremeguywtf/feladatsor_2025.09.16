@@ -2,8 +2,6 @@
 
 class Program
 {
-
-
     static void F1()
     {
         Console.WriteLine("Hello world!");
@@ -39,7 +37,6 @@ class Program
         {
             Console.WriteLine("A megadott szám túl nagy vagy túl kicsi.");
         }
-
     }
 
     static void F4()
@@ -325,6 +322,7 @@ class Program
             Console.WriteLine("A megadott szám túl nagy vagy túl kicsi.");
         }
     }
+
     static void F15()
     {
         try
@@ -335,12 +333,12 @@ class Program
             {
                 Console.WriteLine("A szám nem pozitív.");
                 return;
-
-                for (int i = 1; i <= szam; i++)
-                {
-                    Console.Write(i + " ");
-                }
             }
+            for (int i = 1; i <= szam; i++)
+            {
+                Console.Write(i + " ");
+            }
+            Console.WriteLine();
         }
         catch (FormatException)
         {
@@ -350,99 +348,102 @@ class Program
         {
             Console.WriteLine("A megadott szám túl nagy vagy túl kicsi.");
         }
+    }
 
-        static void F16()
-        {
-            int szam = 0;
-            bool sikeres = false;
-            while (!sikeres)
-            {
-                try
-                {
-                    Console.Write("Adj meg egy pozitív egész számot: ");
-                    szam = int.Parse(Console.ReadLine()!);
-                    if (szam < 0)
-                    {
-                        Console.WriteLine("A szám nem pozitív.");
-                    }
-                    else
-                    {
-                        sikeres = true;
-                    }
-                }
-                catch (FormatException)
-                {
-                    Console.WriteLine("A megadott érték sajnos nem alakítható át számmá :(");
-                }
-                catch (OverflowException)
-                {
-                    Console.WriteLine("A megadott szám túl nagy vagy túl kicsi.");
-                }
-            }
-        }
-        static void F17()
+    static void F16()
+    {
+        int szam = 0;
+        bool sikeres = false;
+        while (!sikeres)
         {
             try
             {
                 Console.Write("Adj meg egy pozitív egész számot: ");
-                int szam = int.Parse(Console.ReadLine()!);
-                for (int i = 1; i <= szam; i++)
+                szam = int.Parse(Console.ReadLine()!);
+                if (szam < 0)
                 {
-                    Console.Write($"{i} ");
-                    if (szam < 0)
-                    {
-                        Console.WriteLine("A szám nem pozitív.");
-                        return;
-                    }
+                    Console.WriteLine("A szám nem pozitív.");
+                }
+                else
+                {
+                    sikeres = true;
                 }
             }
             catch (FormatException)
             {
-                Console.WriteLine("A megadott számnak nem írhatóak ki az osztói");
+                Console.WriteLine("A megadott érték sajnos nem alakítható át számmá :(");
             }
             catch (OverflowException)
             {
                 Console.WriteLine("A megadott szám túl nagy vagy túl kicsi.");
             }
         }
-        static void F18()
+    }
+
+    static void F17()
+    {
+        try
         {
-            int szam = 0;
-            bool sikeres = false;
-            while (!sikeres)
+            Console.Write("Adj meg egy pozitív egész számot: ");
+            int szam = int.Parse(Console.ReadLine()!);
+            if (szam < 0)
             {
-                try
-                {
-                    Console.Write("Adj meg egy pozitív egész számot: ");
-                    szam = int.Parse(Console.ReadLine()!);
-                    if (szam < 0)
-                    {
-                        Console.WriteLine("A szám nem pozitív.");
-                    }
-                    else
-                    {
-                        sikeres = true;
-                    }
-                }
-                catch (FormatException)
-                {
-                    Console.WriteLine("Hiba: Nem számot adtál meg! ");
-                }
-                catch (OverflowException)
-                {
-                    Console.WriteLine("Hiba történt: ");
-                }
+                Console.WriteLine("A szám nem pozitív.");
+                return;
             }
-            int osszeg = 0;
             for (int i = 1; i <= szam; i++)
             {
-                if (szam % i == 0)
+                Console.Write($"{i} ");
+            }
+            Console.WriteLine();
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("A megadott számnak nem írhatóak ki az osztói");
+        }
+        catch (OverflowException)
+        {
+            Console.WriteLine("A megadott szám túl nagy vagy túl kicsi.");
+        }
+    }
+
+    static void F18()
+    {
+        int szam = 0;
+        bool sikeres = false;
+        while (!sikeres)
+        {
+            try
+            {
+                Console.Write("Adj meg egy pozitív egész számot: ");
+                szam = int.Parse(Console.ReadLine()!);
+                if (szam < 0)
                 {
-                    osszeg += i;
+                    Console.WriteLine("A szám nem pozitív.");
+                }
+                else
+                {
+                    sikeres = true;
                 }
             }
-            Console.WriteLine("Az osztóinak összege: " + osszeg);
+            catch (FormatException)
+            {
+                Console.WriteLine("Hiba: Nem számot adtál meg! ");
+            }
+            catch (OverflowException)
+            {
+                Console.WriteLine("Hiba történt: ");
+            }
         }
+        int osszeg = 0;
+        for (int i = 1; i <= szam; i++)
+        {
+            if (szam % i == 0)
+            {
+                osszeg += i;
+            }
+        }
+        Console.WriteLine("Az osztóinak összege: " + osszeg);
     }
 
     static void F19()
@@ -472,24 +473,25 @@ class Program
             {
                 Console.WriteLine("Hiba történt: ");
             }
-            int osszeg = 0;
-            for (int i = 1; i <= szam; i++)
+        }
+        int osszeg = 0;
+        for (int i = 1; i <= szam; i++)
+        {
+            if (szam % i == 0)
             {
-                if (szam % i == 0)
-                {
-                    osszeg += i;
-                }
-            }
-            if (osszeg == 2 * szam)
-            {
-                Console.WriteLine($"A {szam} szám tökéletes.");
-            }
-            else
-            {
-                Console.WriteLine($"A {szam} szám nem tökéletes.");
+                osszeg += i;
             }
         }
+        if (osszeg == 2 * szam)
+        {
+            Console.WriteLine($"A {szam} szám tökéletes.");
+        }
+        else
+        {
+            Console.WriteLine($"A {szam} szám nem tökéletes.");
+        }
     }
+
     static void F20()
     {
         int alap = 0;
@@ -516,7 +518,6 @@ class Program
             {
                 Console.WriteLine("Hiba történt");
             }
-
         }
         double eredmeny = Math.Pow(alap, kitevo);
 
@@ -527,84 +528,309 @@ class Program
 
     static void F21()
     {
-        static void ReadPositiveNumber()
+        int szam = 0;
+        bool sikeres = false;
+
+        while (!sikeres)
         {
-            int szam = 0;
-            bool sikeres = false;
-
-            while (!sikeres)
+            try
             {
-                try
+                Console.Write("Adj meg egy pozitív számot: ");
+                szam = int.Parse(Console.ReadLine()!);
+
+                if (szam > 0)
                 {
-                    Console.Write("Adj meg egy pozitív számot: ");
-                    szam = int.Parse(Console.ReadLine()!);
-
-                    if (szam > 0)
-                    {
-                        sikeres = true;
-                        Console.WriteLine($"A megadott szám: {szam}");
-                    }
-                    else
-                    {
-                        Console.WriteLine("A szám nem pozitív. Próbáld újra!");
-                    }
+                    sikeres = true;
+                    Console.WriteLine($"A megadott szám: {szam}");
                 }
-                catch (FormatException)
+                else
                 {
-                    Console.WriteLine("Hiba: Nem számot adtál meg! Próbáld újra!");
+                    Console.WriteLine("A szám nem pozitív. Próbáld újra!");
                 }
-                catch (OverflowException)
-                {
-                    Console.WriteLine("Hiba: A megadott szám túl nagy vagy túl kicsi. Próbáld újra!");
-                }
-            }       
-        }
-
-            static void F22()
-            {
-                static void ReadNumbersAndSum()
-                {
-                    int osszeg = 0;
-                    while (true)
-                    {
-                        try
-                        {
-                            Console.Write("Adj meg egy számot (ha tíz vagy nagyobb, a program leáll): ");
-                            int szam = int.Parse(Console.ReadLine()!);
-
-                            if (szam >= 10)
-                            {
-                                break;
-                            }
-
-                            osszeg += szam;
-                        }
-                        catch (FormatException)
-                        {
-                            Console.WriteLine("Hiba: Nem számot adtál meg! Próbáld újra!");
-                        }
-                        catch (OverflowException)
-                        {
-                            Console.WriteLine("Hiba: A megadott szám túl nagy vagy túl kicsi. Próbáld újra!");
-                        }
-                    }
-
-                    Console.WriteLine($"A beolvasott számok összege: {osszeg}");
-                }
-
-                
             }
-        static void F23()
-        {
-            int szam = 0;
-
-        }
-
-
-        }
-        static void Main()
-        {
-            F1();
-
+            catch (FormatException)
+            {
+                Console.WriteLine("Hiba: Nem számot adtál meg! Próbáld újra!");
+            }
+            catch (OverflowException)
+            {
+                Console.WriteLine("Hiba: A megadott szám túl nagy vagy túl kicsi. Próbáld újra!");
+            }
         }
     }
+
+    static void F22()
+    {
+        int osszeg = 0;
+        while (true)
+        {
+            try
+            {
+                Console.Write("Adj meg egy számot (ha tíz vagy nagyobb, a program leáll): ");
+                int szam = int.Parse(Console.ReadLine()!);
+
+                if (szam >= 10)
+                {
+                    break;
+                }
+
+                osszeg += szam;
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Hiba: Nem számot adtál meg! Próbáld újra!");
+            }
+            catch (OverflowException)
+            {
+                Console.WriteLine("Hiba: A megadott szám túl nagy vagy túl kicsi. Próbáld újra!");
+            }
+        }
+
+        Console.WriteLine($"A beolvasott számok összege: {osszeg}");
+    }
+
+    static void F23()
+    {
+        try
+        {
+            Console.Write("Kérek egy egész számot: ");
+            int szam = int.Parse(Console.ReadLine()!);
+            int eredeti = szam;
+
+            Console.Write(eredeti + " = ");
+            bool voltOsztas = false;
+
+            while (szam % 2 == 0)
+            {
+                Console.Write("2*");
+                szam /= 2;
+                voltOsztas = true;
+            }
+
+            Console.WriteLine(szam);
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("Hiba:lehetséges hogy nem számot adtál volna meg !");
+        }
+        catch (OverflowException)
+        {
+            Console.WriteLine("Hiba: ez most nem jott be te kis csibész :( !");
+        }
+    }
+
+    static void F24()
+    {
+        Console.Write("Adj meg egy szót: ");
+        string szo = Console.ReadLine();
+
+        if (szo == "alma")
+        {
+            Console.WriteLine("Az alma gyümölcs!");
+        }
+        else
+        {
+            Console.WriteLine("Nem jó, csak az 'alma'-t fogadom el!");
+        }
+    }
+
+    static void F25()
+    {
+        try
+        {
+            Console.Write("Adj meg egy egész számot: ");
+            int szam = int.Parse(Console.ReadLine()!);
+            int eredeti = szam;
+
+            int hanyas = szam / 3;
+            int maradek = szam % 3;
+
+            Console.WriteLine($"{eredeti} = {hanyas}*3+{maradek}");
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("Hiba:Lehetséges volna hogy nem számot adtál meg?");
+        }
+    }
+
+    static void F26()
+    {
+        try
+        {
+            Console.Write("Adj meg egy számot: ");
+            int n = int.Parse(Console.ReadLine()!);
+            bool prim = true;
+
+            if (n < 2) prim = false;
+            else
+            {
+                for (int i = 2; i <= Math.Sqrt(n); i++)
+                {
+                    if (n % i == 0)
+                    {
+                        prim = false;
+                        break;
+                    }
+                }
+            }
+            Console.WriteLine(prim ? "Prím szám." : "Nem prím szám.");
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("Hiba: ezt sajnos nem lehet értelmezni");
+        }
+    }
+
+    static void F27()
+    {
+        try
+        {
+            Console.Write("Írj be egy számot: ");
+            int num = int.Parse(Console.ReadLine()!);
+            for (int i = 0; i < num; i++)
+            {
+                int n = 0;
+                for (int x = 1; x < i + 1; x++)
+                {
+                    if (i % x == 0)
+                    {
+                        n++;
+                    }
+                }
+                if (n == 2)
+                {
+                    Console.WriteLine($"{i} ");
+                }
+            }
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("Hiba: ez nem egy szám!");
+        }
+    }
+
+    static void F28()
+    {
+        try
+        {
+            Console.Write("Pls adj meg egy számot: ");
+            int n = int.Parse(Console.ReadLine()!);
+            int eredeti = n;
+
+            Console.Write($"A(z) {eredeti} prímosztói: ");
+
+            for (int i = 2; i <= n; i++)
+            {
+                if (n % i == 0)
+                {
+                    bool prim = true;
+                    for (int j = 2; j <= Math.Sqrt(i); j++)
+                    {
+                        if (i % j == 0) { prim = false; break; }
+                    }
+                    if (prim)
+                    {
+                        Console.Write(i + " ");
+                    }
+                }
+            }
+            Console.WriteLine();
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("Hiba: Ennek a számnak sajnos nem tudom a prím osztóit kiírni!");
+        }
+    }
+
+    static void F29()
+    {
+        try
+        {
+            Console.Write("Írj be egy számot: ");
+            int num = int.Parse(Console.ReadLine()!);
+            for (int i = 0; i < num; i++)
+            {
+                int n = 0;
+                for (int g = 1; g < i + 1; g++)
+                {
+                    if (i % g == 0)
+                    {
+                        n++;
+                    }
+                }
+                if (n == 2)
+                {
+                    if (num % i == 0)
+                    {
+                        Console.WriteLine($"{num} | {i} ");
+                        num = num / i;
+                    }
+                }
+            }
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("Hiba: ez nem egy szám!");
+        }
+    }
+
+    static void F30()
+    {
+        try
+        {
+            Console.Write("Üss be egy számot: ");
+            int x = int.Parse(Console.ReadLine()!);
+            Console.Write("Dobj be még egy számot: ");
+            int y = int.Parse(Console.ReadLine()!);
+
+            while (y > 0)
+            {
+                int t = y;
+                y = x % y;
+                x = t;
+            }
+            Console.WriteLine($"LNKO: {x}");
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("Hiba: Valószínüleg nem egy számot adtál meg!");
+        }
+    }
+
+    static void F31()
+    {
+        try
+        {
+            Console.Write("Adj meg az első számot: ");
+            int a = int.Parse(Console.ReadLine()!);
+            Console.Write("Adj meg a második számot: ");
+            int b = int.Parse(Console.ReadLine()!);
+
+            int x = a, y = b;
+            while (y != 0)
+            {
+                int temp = y;
+                y = x % y;
+                x = temp;
+            }
+            int lnko = x;
+
+            int lkkt = Math.Abs(a * b) / lnko;
+            Console.WriteLine($"A két szám legkisebb közös többszöröse: {lkkt}");
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("Hiba: Nem számot adtál meg!");
+        }
+        catch (OverflowException)
+        {
+            Console.WriteLine("Hiba: A megadott szám túl nagy vagy túl kicsi.");
+        }
+    }
+
+
+    static void Main()
+    {
+        F31();
+    }
+}
