@@ -828,9 +828,112 @@ class Program
         }
     }
 
+    static void F32()
+    {
+        Console.Write("Kérek egy számot:");
+        int num = int.Parse(Console.ReadLine()!);
+
+        for (int i = 1; i < 11; i++)
+        {
+
+            Console.WriteLine($"{num}*{i} = {num * i}");
+        }
+    }
+    static void F33()
+    {
+        Console.Write("Kérek egy számot:");
+        int num = int.Parse(Console.ReadLine()!);
+
+        for (int i = 1; i < 11; i++)
+        {
+
+            Console.WriteLine($"{num}+{i} = {num + i}");
+        }
+    }
+    static void F34()
+    {
+
+    }
+
+
+
+    static void F35()
+    {
+        for (int i = 0; i < 255; i++)
+        {
+            if (char.IsAsciiLetterLower((char)i))
+            {
+                Console.WriteLine($"{i}\t{(char)i}");
+            }
+        }
+    }
+    static void F36()
+    {
+        Console.Write("Írd be a soroknak a számát: ");
+        int row = int.Parse(Console.ReadLine()!);
+        Console.Write("Írd be az oszlopoknak a számát: ");
+        int col = int.Parse(Console.ReadLine()!);
+        for (int i = 0; i < row; i++)
+        {
+            for (int j = 0; j < col; j++)
+            {
+                if (i % 2 ==0)
+                {
+                    Console.Write("OX");
+                }
+                else
+                {
+                    Console.Write("XO");
+                }
+            }
+            Console.WriteLine();
+        }
+    }
+
+    static void F37()
+    {
+        Console.Write("Írd be a soroknak a számát: ");
+        int row = int.Parse(Console.ReadLine()!);
+       
+        for (int i = 0; i < row; i++)
+        {
+            for (int j = 0; j < i +1 ; j++)
+            {
+                Console.Write("*");
+            }
+            Console.WriteLine();
+        }
+    }
+
+    static void F39()
+    {
+        Console.Write("Kérek egy természetes számot: ");
+        int row = int.Parse(Console.ReadLine()!);
+        Console.Write("Kérek egy másik természets számot: ");
+        int col = int.Parse(Console.ReadLine()!);
+
+        for (int N = 0; N < row + 1; N++)
+        {
+            for(int M = 0; M < col - N; M++)
+            {
+                if (N == 1 || M == 1 || N == row || M == col)
+                {
+                    Console.Write("*");
+                }
+                else
+                {
+                    Console.Write(" ");      
+                }
+
+            }
+        Console.WriteLine();
+        }
+    }
+
+
 
     static void Main()
     {
-        F31();
+        F39();
     }
 }
